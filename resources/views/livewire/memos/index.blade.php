@@ -5,7 +5,13 @@ use App\Models\Memo;
 
 state(['memos' => fn() => Memo::all()]);
 
-//
+$create = function () {
+    return redirect()->route('memos.create');
+};
+
+$edit = function() {
+    
+}
 
 ?>
 
@@ -14,9 +20,11 @@ state(['memos' => fn() => Memo::all()]);
     <ul>
         @foreach ($memos as $memo)
             <li>
-                <a href=" {{ route('memos.show', $memo->id) }}">
+                <a href=" {{ route('memos.show', $memo) }}">
                     {{ $memo->title }}</a>
             </li>
         @endforeach
     </ul>
+
+    <button wire:click="create">登録する</button>
 </div>
