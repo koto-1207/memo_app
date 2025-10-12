@@ -9,10 +9,6 @@ $create = function () {
     return redirect()->route('memos.create');
 };
 
-$edit = function() {
-    
-}
-
 ?>
 
 <div>
@@ -21,7 +17,8 @@ $edit = function() {
         @foreach ($memos as $memo)
             <li>
                 <a href=" {{ route('memos.show', $memo) }}">
-                    {{ $memo->title }}</a>
+                    {{ $memo->title }} [{{ $memo->priority_text }}]
+                </a>
             </li>
         @endforeach
     </ul>
